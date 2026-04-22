@@ -14,8 +14,8 @@ const Dashboard = () => {
   const fetchExpenses = async () => {
     try {
       const url = filter === 'All' 
-        ? 'http://localhost:5000/api/expenses' 
-        : `http://localhost:5000/api/expenses?category=${filter}`;
+        ? 'https://expenssmanager.onrender.com/api/expenses' 
+        : `https://expenssmanager.onrender.com/api/expenses?category=${filter}`;
       const res = await axios.get(url);
       setExpenses(res.data);
     } catch (err) {
@@ -32,7 +32,7 @@ const Dashboard = () => {
   const handleAddExpense = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/expenses', formData);
+      await axios.post('https://expenssmanager.onrender.com/api/expenses', formData);
       setFormData({ title: '', amount: '', category: CATEGORIES[0], date: '' });
       fetchExpenses();
     } catch (err) {
